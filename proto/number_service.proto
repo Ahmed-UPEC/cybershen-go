@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "cybershen-go/proto;proto";
+
+// Le reste du contenu .proto
+service NumberService {
+  rpc BiDirectionalStreaming (stream NumberRequest) returns (stream NumberResponse);
+}
+
+message NumberRequest {
+  int32 id = 1;
+  int32 num = 2;
+}
+
+message NumberResponse {
+  int32 message_id = 1;
+  int32 max = 2;
+}
